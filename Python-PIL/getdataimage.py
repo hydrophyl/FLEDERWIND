@@ -16,8 +16,8 @@ pixel_pnggs_256 = list(im1.getdata())
 im2 = Image.open('Cuted/pngcolor.png')
 pixel_png_color = list(im1.getdata())
 
-imcolor = Image.open('Original/bmp0000.bmp').getcolors()
-print("Listed Colors in BMPFarben Original: ")
+imcolor = Image.open('Original/png0000.png').getcolors()
+print("Listed Colors in PNG256 Farbe Original: ")
 
 for x in imcolor:
     print(x)
