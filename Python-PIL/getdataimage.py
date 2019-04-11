@@ -1,3 +1,6 @@
+""" 4/2019 """
+
+""" Author: Duy Nguyen """
 from PIL import Image
 
 #BMP
@@ -26,6 +29,9 @@ print("\n")
 print("Anzahl der Farben im Bild: ")
 print(len(imcolor))
 
+print()
+
+print(pixel_bmp)
 
 # NOTE  Messwerte Cuted Images *nur die Schwarz-Gelb Bereich wird genommen.
 #       BMP    Color       32 Farben
