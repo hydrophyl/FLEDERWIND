@@ -4,7 +4,7 @@
 from PIL import Image
 
 #BMP
-im = Image.open('Cuted/bmp24.bmp')
+im = Image.open('18.4 Radarproben/CF_0_333m_f_2_5s_greyscale_25600000000.png')
 pixel_bmp = list(im.getdata())
 
 #PNG
@@ -19,8 +19,10 @@ pixel_pnggs_256 = list(im1.getdata())
 im2 = Image.open('Cuted/pngcolor.png')
 pixel_png_color = list(im1.getdata())
 
-imcolor = Image.open('Original/png0000.png').getcolors()
-print("Listed Colors in PNG256 Farbe Original: ")
+#imcolor = Image.open('18.4 Radarproben/CF_0_333m_f_2_5s_png_24bit00000000.png').getcolors()
+#imcolor = Image.open('Original/bmp0000.bmp').getcolors()
+imcolor = Image.open('18.4 Radarproben/CF_0_333m_f_2_5s_png_16bit00000000.png').getcolors()
+print("Listed Colors in PNG 16 Farben Original: ")
 
 for x in imcolor:
     print(x)
@@ -29,9 +31,6 @@ print("\n")
 print("Anzahl der Farben im Bild: ")
 print(len(imcolor))
 
-print()
-
-print(pixel_bmp)
 
 # NOTE  Messwerte Cuted Images *nur die Schwarz-Gelb Bereich wird genommen.
 #       BMP    Color       32 Farben
