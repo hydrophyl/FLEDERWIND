@@ -1,28 +1,18 @@
-import cv2
 import os, os.path
+import cv2
 
 print (cv2.__version__)
 
 imageDir = "RadarbilderProbe/" #specify your path here
-image_path_list = []
-valid_image_extensions = [".bmp"] #specify your valid extensions here
-valid_image_extensions = [item.lower() for item in valid_image_extensions]
+image_path_list = [f for f in os.listdir('RadarbilderProbe')]
+image_path_list.sort()
 
-for file in os.listdir(imageDir):
-    extension = os.path.splitext(file)[1]
-    if extension.lower() not in valid_image_extensions:
-        continue
-    image_path_list.append(os.path.join(imageDir, file))
-
-for imagePath in image_path_list:
-    img = cv2.imread(imagePath)
-    if img is None:
-        continue
-
-    cv2.imshow(imagePath, img)
-    
-    key = cv2.waitKey(0) & 0xFF
-    if key == 27: # escape
-        break
-
-cv2.destroyAllWindows()
+#Read and substract images
+for i in range(44):
+    pic_1 = cv2.imread('RadarbilderProbe/' + image_path_list[i])
+    pic_2 = cv2.imread('RadarbilderProbe/' + image_path_list[i+1])
+    dif = cv2.subtract(pic_2,pic_1)
+    #Write to files
+    cv2.imwrite('translated/' + image_path_list[i] +'.png', dif)
+    dif_gs = cv2.imread('translated/' + image_path_list[i] + '.png', 0) 
+    cv2.imwrite('translated/' + image_path_list[i] + '_gs.png', dif_gs)
