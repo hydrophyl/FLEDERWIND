@@ -1,11 +1,17 @@
 #TODO PNG Funktionsprinzip zusammenfassen. (DIN A4 Stichpunksartig)
     https://medium.com/@duhroach/how-png-works-f1174e3cc7b7 Uebersicht auf PNG-Lossless Datacompression
     http://www.libpng.org/pub/png/book/chapter09.html LZ77 Algorithmen for PNG Images
-    https://www.zlib.net/feldspar.html Explanation of the Deflate Algorithm 
+    https://www.zlib.net/feldspar.html Explanation of the Deflate Algorithm
+DONE
 #TODO Info RadR (Beispiel Radartrack)
     https://www.radr-project.org
+DONE
 #TODO Bilderkennung/Python/Machine learning? [Trackverlauf, Position, Zeit]
     #NOTE Saving and Loading Models
         pytorch, Facebooks Framework -> Deep learning
     https://pytorch.org/tutorials/beginner/saving_loading_models.html
-#ANCHOR RGB außer 32 Farben ausblenden. Python  
+#ANCHOR RGB außer 32 Farben ausblenden. Python
+DONE
+#TODO Create a list of color with visual colors from radar images
+
+#TODO Detection range intensity of bat's signals
