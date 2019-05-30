@@ -2,7 +2,7 @@ import os, os.path, PIL
 from PIL import Image
 
 #Access all images files in directory
-imageDirectory = "A_LearnData/8"
+imageDirectory = "PNG_Radarbilder"
 imagesNameList = [filename for filename in os.listdir(imageDirectory)]
 imagesNameList.sort() #sorting the names of images [0000,0001,0002,0003,...]
 analyzedImageDirectory = "Analyzed/"
