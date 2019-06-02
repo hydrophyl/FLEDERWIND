@@ -18,9 +18,6 @@ columns = imageModel.width   #number of columns of pixels
 counterMatrix = numpy.zeros((rows, columns), dtype = int)
 
 #TODO Count the number when a pixel appear colors
-#NOTE It's not a problem when disturbing signals in the same spot as bat's signals
-#NOTE Counter run just for 10, 20, 50, or 100 images? (for all images make nonsense, because of the repetition of disturbing signals)
-#NOTE It can be a blind record through the day?
 for indexofImage in range(len(imagesNameList)):
     #Load pixels of an image and go though all pixels
     image = Image.open(imageDirectory + "/" + imagesNameList[indexofImage])
