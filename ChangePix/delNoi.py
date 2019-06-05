@@ -5,9 +5,10 @@ from PIL import Image
 
 #Start time counter
 t0 = time.time()
+print("="*80)
 print("Welcome to the Noise Reduction Programm! All radar images in the Directory in the python file are going to be converted!")
 #Access all images files in directory
-imageDirectory = "Radarbilder"
+imageDirectory = "PNG_Radarbilder"
 imagesNameList = [filename for filename in os.listdir(imageDirectory)]
 imagesNameList.sort()
 
@@ -30,6 +31,7 @@ for indexofImage in range(100): # the first 100 images is taken to analyse the n
 
 t1 = time.time()
 print()
+print("="*80)
 print("Time required: ",t1 - t0)
 print("End of noise counter!")
 
@@ -56,6 +58,7 @@ for indexofImage in range(len(imagesNameList)): #range(len(imagesNameList)): * c
 
 t2 = time.time()
 print()
+print("="*80)
 print("Time required to convert full radar images to yellow signal images: ",t2-t1)
 print(f"{len(imagesNameList)} images are converted! Congratulations!")
 
@@ -93,6 +96,7 @@ for indexofImage in range(len(imagesNameList)):
 
 t3 = time.time()
 print()
+print("="*80)
 print("Time required to delete noises to all radar images: ",t3 - t2)
 os.system("ffmpeg -framerate 20 -i " + imageDirectory + "/" + imagesNameList[0][:4] + "%08d.png " + "speed.mp4") #when bmp images are used, change png to bmp.
 print("All the noise reduced radar images is saved in video speed.mp4 in 20fps!")
@@ -100,6 +104,7 @@ print("All the noise reduced radar images is saved in video speed.mp4 in 20fps!"
 #End time counter
 t4 = time.time()
 print()
+print("="*80)
 print("Time required for all processes: ", t4 - t0)
 print("Congratulations! Alles Gute!")
 
