@@ -6,7 +6,8 @@ from PIL import Image
 #Start time counter
 t0 = time.time()
 print("="*80)
-print("Welcome to the Noise Reduction Programm! All radar images in the Directory in the python file are going to be converted!")
+print("Welcome to the Noise Reduction Program! All radar images in the Directory in the python file are going to be converted!")
+
 #Access all images files in directory
 imageDirectory = "TrackedImages/8_" #change here to change the image directory
 #create a list of filenames in imagesDirectory
@@ -24,23 +25,22 @@ counterMatrix = numpy.zeros((rows, columns), dtype = int)
 
 #Change this value to change how much images are analyzed to count the noise
 counter = 100
-for indexofImage in range(counter): # the first 100 images is taken to analyse the noise (noise appear in the same spot > 1 times in 100 images)
+for indexofImage in range(counter): # the first "counter" images is taken to analyse the noise (noise appear in the same spot > 1 times in 100 images)
     image = Image.open(imageDirectory + "/" + imagesNameList[indexofImage])
-    loadedPixelMap = image.load()
+    loadedPixelMap = image.load() #loading the (R,G,B) array of all pixel
     #for every columns and rows of matrix
     for column in range(columns):
         for row in range(rows):
-            if loadedPixelMap[column, row] != (0,0,0): #if pixel is not black -> (!signal)
+            if loadedPixelMap[column, row] != (0,0,0): #if pixel is not black -> (!signal) -> add one to counterMatrix on the spot of this pixel
                 counterMatrix[row, column] = counterMatrix[row, column] + 1
 
 t1 = time.time()
-
 print("="*80)
 print("Time required: ",t1 - t0)
 print("End of noise counter!")
 print()
 
-for indexofImage in range(len(imagesNameList)): #range(len(imagesNameList)): * change range(100) to this to analyze all images in folders
+for indexofImage in range(len(imagesNameList)): #analyze all images in folders and delete the unused colors
     #Load pixels of an image and go though all pixels
     image = Image.open(imageDirectory + "/" + imagesNameList[indexofImage])
     loadedPixelMap = image.load()
@@ -78,15 +78,6 @@ print()
 # red(time) :               (255,0,0)
 # gray(background) :        (70,70,70)
 # white(cursor) :           (255,255,255)
-# low yellow intensities
-# (24,24,0)
-# (28,28,0)
-# (32,32,0)
-# (36,36,0)
-# (40,40,0)
-# (43,43,0)
-# (46,46,0)
-
 #Read the Matrix and analyse
 #Go through all images and delete the Noise
 for indexofImage in range(len(imagesNameList)):
