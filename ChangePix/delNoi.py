@@ -9,7 +9,7 @@ print("="*80)
 print("Welcome to the Noise Reduction Program! All radar images in the Directory in the python file are going to be converted!")
 
 #Access all images files in directory
-imageDirectory = "TrackedImages/8_" #change here to change the image directory
+imageDirectory = "PNGImages" #change here to change the image directory
 #create a list of filenames in imagesDirectory
 imagesNameList = [filename for filename in os.listdir(imageDirectory)]
 imagesNameList.sort() #sorting namelist a-z
