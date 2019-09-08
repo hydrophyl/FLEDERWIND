@@ -58,7 +58,6 @@ for indexofImage in range(len(imagesNameList)): #analyze all images in folders a
                 loadedPixelMap[column, row] == (255,0,0) or \
                 loadedPixelMap[column, row] == (255,255,255):
                 loadedPixelMap[column, row] = (0,0,0)
-    #os.remove(imageDirectory + "/" + imagesNameList[indexofImage])
     image.save(imageDirectory + "/" + imagesNameList[indexofImage])
 
 t2 = time.time()
@@ -96,12 +95,14 @@ print("Time required to delete noises to all radar images: ",t3 - t2)
 print("="*80)
 print()
 print("="*80)
-os.system("ffmpeg -framerate 20 -i " + imageDirectory + "/" + imagesNameList[0][:-4] + "%08d.png " + "ffmpeg.mp4") #when bmp images are used, change png to bmp with the script changetoBMP.py
-print("All the noise reduced radar images is saved in video ffmpeg.mp4 in 20fps!")
+os.system("ffmpeg -framerate 10 -i " + imageDirectory + "/" + imagesNameList[0][:-7] + "%03d.png " + "Zusammenfassung.mp4") #when bmp images are used, change png to bmp with the script changetoBMP.py
+print("All the noise reduced radar images is saved in video ffmpeg.mp4 in 10fps!")
+# Example: we have 300 images and these are named as cap_00000001.png to cap_00000300.png
+# imagesNameList[0] = cap_00000001.png -> imagesNameList[0][:-7] = cap_00000 -> imagesNameList[0][:-7] + "%03d.png" = cap_00000001.png to cap_00000999.png *just to 300 because of limited files
 
-#End time counter
+# End time counter
 t4 = time.time()
 print("="*80)
 print()
 print("Time required for all processes: ", t4 - t0)
-print("Congratulations! Alles Gute!")
+print("Vielen Dank fuer Ihre Geduld!")
